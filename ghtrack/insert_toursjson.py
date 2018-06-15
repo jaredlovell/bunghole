@@ -9,7 +9,8 @@ import psycopg2
 toursfile = sys.argv[1]
 
 
-dsn = 'dbname=ght user=pgsql password=xyz host=localhost'
+#dsn = 'dbname=ght user=pgsql password=xyz host=localhost'
+dsn = 'dbname=ght user=jlovell host=localhost'
 
 def main():
     conn = _db_new_connection(dsn)
@@ -36,8 +37,12 @@ def main():
 
             if not 'timestamp' in v.keys():
                 v['timestamp'] = datetime.datetime(1978, 1, 1)
-            elif not 'date' in str(type(v['timestamp'])):
-                v['timestamp'] = datetime.datetime(1978, 1, 1)
+            else:
+                try:
+                    datetime.datetime.strptime(v['timestamp'], '%Y-%m-%dT%H:%M:%SZ')
+                except:
+                    print("bad dates "+str(v['timestamp']))
+                    v['timestamp'] = datetime.datetime(1978, 1, 1)
             
             if not 'name' in v.keys(): v['name'] = None
 
