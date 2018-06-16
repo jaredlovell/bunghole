@@ -20,6 +20,7 @@ CREATE TABLE stops
 	id			varchar	NOT NULL,
 	tours_id		varchar NOT NULL,
 	type			varchar,
+	status			varchar,
    	time_window_begin	timestamp,
    	time_window_end		timestamp,
    	rta			timestamp,

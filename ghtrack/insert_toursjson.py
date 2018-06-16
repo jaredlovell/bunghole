@@ -119,19 +119,20 @@ def main():
 
 
             insert_sql = """ INSERT INTO stops
-                (id, tours_id, type, time_window_begin, time_window_end, rta,
+                (id, tours_id, type, status, time_window_begin, time_window_end, rta,
                 location_id, company, country, city, zipcode, street, score, latitude, longitude)
-                VALUES ( %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s );"""
+                VALUES ( %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s );"""
 
-            update_sql = """ UPDATE stops SET (id, tours_id, type, time_window_begin, time_window_end, rta,
+            update_sql = """ UPDATE stops SET (id, tours_id, type, status, time_window_begin, time_window_end, rta,
                 location_id, company, country, city, zipcode, street, score, latitude, longitude) =
-                (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 WHERE id = %s AND tours_id = %s;"""
 
             values = [
                 s['id'],
                 t['id'],
                 s['type'],
+                s['status'],
                 s['time_window_begin'],
                 s['time_window_end'],
                 s['rta'],

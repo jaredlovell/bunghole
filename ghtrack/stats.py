@@ -36,7 +36,7 @@ class Main():
         #run reports
         self.report_tours_and_vehicles(self.registry)
 
-        #self.report_tours_only(self.registry)
+        self.report_tours_only(self.registry)
         
 
 
@@ -320,15 +320,15 @@ class Main():
         print(str(len(registry['tours'])) + " tours")
 
         #what kind of tours have a vehicle that matches a tractor or trailer in vehicles.xml?
-        for v in t_with_vehicle:
-            tours = registry['tour_vehicles'][v]
-            print("tours with a vehicle in vehicles.xml (" + v + ")")
-            for t in tours:
-                print(t + " status:" + registry['tours'][t]['status'] +
-                      " begin: "+ registry['tours'][t]['planned_begin'] +" " +
-                      " end: "+ registry['tours'][t]['planned_end']+
-                      " vehicles_in_tour: "+ str(registry['tours'][t]['vehicles'])
-                      )
+##        for v in t_with_vehicle:
+##            tours = registry['tour_vehicles'][v]
+##            print("tours with a vehicle in vehicles.xml (" + v + ")")
+##            for t in tours:
+##                print(t + " status:" + registry['tours'][t]['status'] +
+##                      " begin: "+ registry['tours'][t]['planned_begin'] +" " +
+##                      " end: "+ registry['tours'][t]['planned_end']+
+##                      " vehicles_in_tour: "+ str(registry['tours'][t]['vehicles'])
+##                      )
 
 
     def report_tours_only(self, registry):
@@ -372,13 +372,13 @@ class Main():
         print("shared vehicles: " + str(len(shared_v)))
         
         #what kind of tours are those?
-        for v in shared_v:
-            tours = registry['tour_vehicles'][v]
-            print("tours sharing vehicle " + v)
-            for t in tours:
-                print(t + " status:" + registry['tours'][t]['status'] +
-                      " begin: "+ registry['tours'][t]['planned_begin'] +" " +
-                      " end: "+ registry['tours'][t]['planned_end'])
+##        for v in shared_v:
+##            tours = registry['tour_vehicles'][v]
+##            print("tours sharing vehicle " + v)
+##            for t in tours:
+##                print(t + " status:" + registry['tours'][t]['status'] +
+##                      " begin: "+ registry['tours'][t]['planned_begin'] +" " +
+##                      " end: "+ registry['tours'][t]['planned_end'])
 
             
     def tour_vehicle_report(self, registry, vehicle):
